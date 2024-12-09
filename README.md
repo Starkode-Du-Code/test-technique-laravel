@@ -66,6 +66,7 @@ Votre capacité à respecter les consignes, à structurer votre code et à gére
 - Vous devrez fournir un fichier .env.example pour permettre de configurer l’application.
 - Vous devrez fournir des migrations pour la base de données.
 - Vous devrez fournir des seeds pour remplir la base de données avec des données de test.
+- Votre code doit être exempt de bugs et de vulnérabilités.
 - Les bonus ne sont pas obligatoires, mais ils seront appréciés.
 - L'utilisation de Docker est un plus.
 
@@ -74,6 +75,8 @@ Votre capacité à respecter les consignes, à structurer votre code et à gére
 - Vous pouvez utiliser des packages tiers pour faciliter la réalisation du test.
 - Vous pouvez utiliser des librairies front-end (Bootstrap, Tailwind, Vue.js, React, etc.) pour améliorer l’interface utilisateur.
 - Vous pouvez utiliser des outils de validation de code (Laravel Pint) pour améliorer la qualité de votre code.
+- Il est recommandé d'utiliser larastan (phpstan) pour vérifier la qualité de votre code.
+- Les commandes stan, pint, et pest sont disponibles dans le projet (composer scripts) pour vous aider à vérifier la qualité de votre code.
 - Gérez correctement les erreurs et les exceptions.
 - Respectez les conventions de nommage de Laravel.
 - Bien organiser vos branches et vos commits.
