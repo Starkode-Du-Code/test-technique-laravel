@@ -1,85 +1,359 @@
-<p align="center"><a href="https://iris-prevention.fr" target="_blank"><img src="public/img.png" width="200" alt="Iris Logo"></a></p>
+# Projet Test Technique Laravel - Sujet 1 : Mini-système de Blog
 
-# Test technique Iris Prévention - Laravel
+## Auteur : Stark Kassa
+Je soumets ce projet dans le cadre de ma candidature pour un poste chez **France Surgery**.
 
-Ce test technique a pour but d'évaluer vos competences sur php et laravel.
-Votre capacité à respecter les consignes, à structurer votre code et à gérer vos branches et commits sera aussi évaluée.
+---
 
-## Sujet 1 : Mini-système de blog
+## Description du projet
+Ce projet implémente un mini-système de blog avec Laravel. Il permet de :
+- **Créer, lire, mettre à jour et supprimer des articles** (CRUD complet).
+- **Ajouter des commentaires aux articles**.
+- **Afficher les commentaires associés à chaque article**.
+- **Liker les articles.**
+- Bonus : Ajout d'une pagination pour une meilleure gestion des données affichées.
 
-### Objectif : Évaluer la capacité à mettre en œuvre un CRUD basique.
-- Créer un modèle Post et un modèle Commentaire.
-- Valider les inputs avec des formrequests.
-- Implémenter une interface :
-  - Pour créer et gérer des articles.
-  - Pour ajouter des commentaires aux articles.
-  - Pour voir les commentaires associés à un article.
+---
 
-#### Bonus : Permettre aux utilisateurs d’aimer un article.
+## Fonctionnalités principales
+### Gestion des Articles
+1. **Créer un article**
+   - Interface utilisateur permettant de saisir un titre et un contenu pour l'article.
+   - Validation des données saisies (titre et contenu obligatoires).
 
-## Sujet 2 : Système d’authentification personnalisé
+2. **Afficher les articles**
+   - Liste paginée des articles avec leur nombre de likes.
+   - Détail de chaque article avec ses commentaires.
 
-### Objectif : Tester les compétences en authentification et gestion des sessions.
-- Créer un système de connexion/inscription (pas via artisan make:auth).
-- Mettre en place :
-- Un système de réinitialisation de mot de passe (par email).
-- Une protection des routes nécessitant une authentification.
-- Obliger les utilisateurs à être connectés pour pouvoir liker et poster des commentaires et des articles.
+3. **Mettre à jour et supprimer**
+   - Modifier un article existant via un formulaire dédié.
+   - Supprimer un article.
 
-#### Bonus : 
-- #### Implémenter une double authentification (par exemple, un code envoyé par email).
-- #### Implémenter un système de rôle, les administrateurs peuvent modérer et modifier les articles des autres utilisateurs.
+### Gestion des Commentaires
+- Ajouter un commentaire à un article.
+- Valider les champs obligatoires (auteur et contenu).
 
-## Sujet 3 : API REST : Gestion des utilisateurs et des articles
+### Système de Likes
+- Les utilisateurs peuvent liker les articles.
+- Le nombre de likes est affiché pour chaque article.
 
-### Objectif : Tester la maîtrise des API et des bonnes pratiques REST.
-- Créer une API permettant de gérer des utilisateurs/Articles :
-- Créer un utilisateur/Article.
-- Récupérer la liste des utilisateurs/Articles.
-- Récupérer un utilisateur/article spécifique.
-- Mettre à jour un utilisateur/article.
-- Supprimer un utilisateur/article.
-- Utiliser des Resource pour structurer les réponses.
+---
 
-#### Bonus :
-- #### Ajouter une authentification (par exemple, via Passport ou Sanctum).
-- #### Implémenter une pagination pour l’API (avec les liens next, prev).
+## Installation
+### Prérequis
+- PHP >= 8.0
+- Composer
+- MySQL
+- Laravel 10
 
-## Sujet Bonus 1 : Événements et Observateurs
+### Étapes
+1. **Cloner le projet** :
+   ```bash
+   git clone <lien-du-repo>
+   cd <nom-du-repo>
+   ```
 
-### Objectif : Tester la maîtrise des fonctionnalités avancées de Laravel.
-- Créer un événement lors de la création d'un article/commentaire et envoyer un email à l'administrateur.
-- Créer un événement lors de la suppression d’un article/commentaire et envoyer un email à l’administrateur.
-- Créer un événement lorsqu’un utilisateur aime un article et envoyer un email à l’auteur de l’article.
-- Mettre en place une écoute pour envoyer un email adéquat à l’utilisateur quand un événement est déclenché.
+2. **Installer les dépendances** :
+   ```bash
+   composer install
+   ```
 
-## Sujet Bonus 2 : Tests automatisés
+3. **Configurer l'application** :
+   - Copier le fichier `.env.example` en `.env` :
+     ```bash
+     cp .env.example .env
+     ```
+   - Configurer la connexion à la base de données dans le fichier `.env` :
+     ```
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=blog
+     DB_USERNAME=root
+     DB_PASSWORD=secret
+     ```
 
-### Objectif : Évaluer les compétences en TDD ou les tests unitaires.
-- Créer des tests unitaires pour valider la logique d’une API REST.
-- Les tests unitaires doivent de préférence être écrits avec Pest.
-- Proposer un test fonctionnel avec Laravel Dusk (ou autre framework de test type cypress) pour valider l’interface utilisateur du blog.
+4. **Générer la clé d'application** :
+   ```bash
+   php artisan key:generate
+   ```
 
-## Rendu
-- Vous devrez fournir un lien vers un dépôt git (GitHub, GitLab, Bitbucket) contenant votre code.
-- Vous devrez fournir un fichier README.md expliquant comment installer et utiliser votre application.
-- Vous devrez fournir un fichier .env.example pour permettre de configurer l’application.
-- Vous devrez fournir des migrations pour la base de données.
-- Vous devrez fournir des seeds pour remplir la base de données avec des données de test.
-- Votre code doit être exempt de bugs et de vulnérabilités.
-- Les bonus ne sont pas obligatoires, mais ils seront appréciés.
-- L'utilisation de Docker est un plus.
+5. **Appliquer les migrations** :
+   ```bash
+   php artisan migrate
+   ```
 
-## Recommandations
-- Le répo actuel contient un projet Laravel de base. Vous pouvez le cloner pour commencer le test.
-- Vous pouvez utiliser des packages tiers pour faciliter la réalisation du test.
-- Vous pouvez utiliser des librairies front-end (Bootstrap, Tailwind, Vue.js, React, etc.) pour améliorer l’interface utilisateur.
-- Vous pouvez utiliser des outils de validation de code (Laravel Pint) pour améliorer la qualité de votre code.
-- Il est recommandé d'utiliser larastan (phpstan) pour vérifier la qualité de votre code.
-- Les commandes stan, pint, et pest sont disponibles dans le projet (composer scripts) pour vous aider à vérifier la qualité de votre code.
-- Gérez correctement les erreurs et les exceptions.
-- Respectez les conventions de nommage de Laravel.
-- Bien organiser vos branches et vos commits.
-- N’hésitez pas à ajouter des fonctionnalités supplémentaires si vous le souhaitez.
-- N’hésitez pas à poser des questions si vous avez des doutes sur les consignes.
-- Bon courage !
+6. **Remplir la base de données avec des données de test** :
+   ```bash
+   php artisan db:seed
+   ```
+
+7. **Démarrer le serveur de développement** :
+   ```bash
+   php artisan serve
+   ```
+   Accédez à l'application via [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+---
+
+## Documentation des Routes
+### Articles
+| Méthode | URI                  | Action                  |
+|---------|----------------------|-------------------------|
+| GET     | /posts               | Afficher tous les articles (index) |
+| GET     | /posts/create        | Formulaire de création d'article   |
+| POST    | /posts               | Créer un nouvel article            |
+| GET     | /posts/{id}          | Afficher un article spécifique     |
+| PUT     | /posts/{id}          | Mettre à jour un article           |
+| DELETE  | /posts/{id}          | Supprimer un article               |
+
+### Commentaires
+| Méthode | URI                        | Action                               |
+|---------|----------------------------|--------------------------------------|
+| POST    | /posts/{id}/comments       | Ajouter un commentaire à un article |
+
+### Likes
+| Méthode | URI                  | Action                                |
+|---------|----------------------|---------------------------------------|
+| POST    | /posts/{id}/like     | Ajouter un like à un article         |
+
+---
+
+## Tests Unitaires
+### Couverture des Tests
+- **Articles** :
+  - Création, affichage, mise à jour et suppression.
+- **Commentaires** :
+  - Ajout de commentaire.
+- **Likes** :
+  - Incrémentation des likes sur un article.
+
+### Exécuter les tests
+```bash
+vendor/bin/pest
+```
+
+---
+
+## Screenshots
+### Liste des articles
+![Liste des articles](screenshots/posts-index.png)
+
+### Détail d'un article avec commentaires
+![Détail d'un article](screenshots/post-detail.png)
+
+---
+
+## Bonus
+- **Pagination** : Implémentée pour les listes d'articles (5 articles par page).
+- **Validation** : Chaque formulaire inclut une validation robuste pour éviter les erreurs.
+
+---
+
+## Suite du Projet Test Technique Laravel - Sujet 2 : Authentification Avancée et Gestion des Rôles
+
+Ce projet est une extension du sujet 1, visant à renforcer la sécurité et à introduire une gestion avancée des rôles utilisateur.
+
+---
+
+## Nouvelles Fonctionnalités
+
+### 1. Double Authentification (2FA)
+
+#### Fonctionnalités :
+- Les utilisateurs doivent valider un code 2FA envoyé par e-mail pour finaliser leur connexion.
+- Le code expire après 10 minutes pour des raisons de sécurité.
+
+#### Mise en œuvre :
+
+- **Migration pour ajouter les colonnes 2FA** :
+
+  ```php
+  public function up()
+  {
+      Schema::table('users', function (Blueprint $table) {
+          $table->string('two_factor_code')->nullable();
+          $table->timestamp('two_factor_expires_at')->nullable();
+      });
+  }
+  ```
+
+- **Code de génération et vérification** :
+
+  - *Génération d'un code 2FA dans le modèle `User` :*
+
+    ```php
+    public function generateTwoFactorCode()
+    {
+        $this->two_factor_code = rand(100000, 999999);
+        $this->two_factor_expires_at = now()->addMinutes(10);
+        $this->save();
+
+        Mail::to($this->email)->send(new TwoFactorCodeMail($this->two_factor_code));
+    }
+
+    public function resetTwoFactorCode()
+    {
+        $this->two_factor_code = null;
+        $this->two_factor_expires_at = null;
+        $this->save();
+    }
+    ```
+
+  - *Middleware pour vérifier si l'utilisateur a validé le 2FA :*
+
+    ```php
+    public function handle($request, Closure $next)
+    {
+        if (auth()->check() && auth()->user()->two_factor_code) {
+            return redirect()->route('verify.2fa');
+        }
+
+        return $next($request);
+    }
+    ```
+
+- **Route de vérification 2FA :**
+
+  ```php
+  Route::middleware('auth')->group(function () {
+      Route::get('verify-2fa', [AuthController::class, 'showTwoFactorForm'])->name('verify.2fa');
+      Route::post('verify-2fa', [AuthController::class, 'verifyTwoFactor']);
+  });
+  ```
+
+- **Vue pour la vérification 2FA :**
+
+  ```blade
+  @extends('layouts.app')
+
+  @section('title', 'Vérification 2FA')
+
+  @section('content')
+  <div class="container mt-4">
+      <h1>Vérification 2FA</h1>
+      @if(session('success'))
+          <div class="alert alert-success">{{ session('success') }}</div>
+      @endif
+      <form action="{{ route('verify.2fa') }}" method="POST">
+          @csrf
+          <div class="mb-3">
+              <label for="code" class="form-label">Code :</label>
+              <input type="text" class="form-control" name="code" id="code" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Vérifier</button>
+      </form>
+  </div>
+  @endsection
+  ```
+
+---
+
+### 2. Gestion des Rôles
+
+#### Fonctionnalités :
+- Les administrateurs peuvent gérer les articles et modérer les commentaires.
+- Les utilisateurs réguliers peuvent consulter les articles, liker et commenter.
+
+#### Mise en œuvre :
+
+- **Migration pour ajouter un rôle dans la table `users` :**
+
+  ```php
+  public function up()
+  {
+      Schema::table('users', function (Blueprint $table) {
+          $table->string('role')->default('user');
+      });
+  }
+  ```
+
+- **Middleware pour les administrateurs :**
+
+  ```php
+  public function handle($request, Closure $next)
+  {
+      if (auth()->check() && auth()->user()->role !== 'admin') {
+          abort(403, 'Accès non autorisé.');
+      }
+
+      return $next($request);
+  }
+  ```
+
+- **Routes protégées pour les administrateurs :**
+
+  ```php
+  Route::middleware(['auth', 'admin'])->group(function () {
+      Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+      Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update');
+  });
+  ```
+
+- **Indicateur visuel pour distinguer les rôles dans les vues :**
+
+  ```blade
+  @foreach($users as $user)
+      <li class="list-group-item">
+          <strong>{{ $user->name }}</strong> - {{ $user->email }}
+          @if($user->role === 'admin')
+              <span class="badge bg-danger">Admin</span>
+          @else
+              <span class="badge bg-secondary">User</span>
+          @endif
+      </li>
+  @endforeach
+  ```
+
+---
+
+## Tests Unitaires
+
+### Couverture des Tests
+- **2FA** :
+  - Génération et vérification des codes 2FA.
+  - Expiration des codes 2FA.
+
+- **Rôles** :
+  - Accès limité aux administrateurs pour certaines routes.
+  - Vérification des permissions pour les utilisateurs réguliers.
+
+### Exemple de Test :
+
+```php
+public function test_admin_can_delete_post()
+{
+    $admin = User::factory()->create(['role' => 'admin']);
+    $post = Post::factory()->create();
+
+    $response = $this->actingAs($admin)->delete(route('posts.destroy', $post->id));
+
+    $response->assertStatus(200);
+    $this->assertDatabaseMissing('posts', ['id' => $post->id]);
+}
+```
+
+### Commande pour exécuter les tests
+
+```bash
+vendor/bin/pest
+```
+
+---
+
+## Conclusion
+
+Avec ces ajouts, le projet est maintenant sécurisé grâce à la double authentification et offre une gestion robuste des rôles utilisateur. Cela répond aux exigences du sujet 2 et renforce l'application pour une utilisation réelle.
+
+---
+
+
+---
+
+Merci pour votre attention. Ce projet est prêt à être évalué par l'équipe technique de France Surgery.
+
+---
+
+## Contact
+- **Stark Kassa**
+- Email : stark.kassa@example.com
