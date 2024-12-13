@@ -1,7 +1,7 @@
 # Projet Test Technique Laravel - Sujet 1 : Mini-système de Blog
 
 ## Auteur : Stark Kassa
-Je soumets ce projet dans le cadre de ma candidature pour un poste chez **France Surgery**.
+Je soumets ce projet dans le cadre de ma candidature pour un poste chez **Iris Prévention**.
 
 ---
 
@@ -410,7 +410,7 @@ Cette section sera enrichie au fur et à mesure que des fonctionnalités ou des 
 
 ---
 
-Merci pour votre attention. Ce projet est prêt à être évalué par l'équipe technique de France Surgery.
+Merci pour votre attention. Ce projet est prêt à être évalué par l'équipe technique de Iris Prévention.
 
 ---
 
