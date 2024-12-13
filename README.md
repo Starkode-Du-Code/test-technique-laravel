@@ -347,6 +347,66 @@ Avec ces ajouts, le projet est maintenant sécurisé grâce à la double authent
 
 ---
 
+## Autres captures d’écran du projet
+
+Cette section illustre les différentes fonctionnalités de l’application avec des captures d’écran.
+
+
+### **1. Formulaire de création/modification d’un article**
+- Capture du formulaire permettant de créer ou modifier un article, avec des champs de validation pour le titre et le contenu.
+
+![Formulaire de création d'article](screenshots/post-create.png)  
+---
+
+### **2. Page de connexion et inscription**
+- Formulaire de connexion et d'inscription.
+- Exemple d’erreur de validation en cas de saisie incorrecte.
+
+![Connexion](screenshots/login.png)  
+![Inscription](screenshots/register.png) 
+
+---
+
+### **3. Double authentification (2FA)**
+- Page demandant le code envoyé par email pour la validation 2FA.
+- Exemple de message de succès indiquant que le code a été envoyé.
+
+![Vérification 2FA](screenshots/two-factor-auth.png)  
+
+---
+
+### **4. E-mail de double authentification**
+- Capture de l'email contenant le code de validation envoyé pour la double authentification.
+
+![Email de double authentification](screenshots/two-factor-email.png)
+
+---
+
+### **5. Page profil utilisateur**
+- Page affichant les informations de profil de l’utilisateur connecté.
+
+![Profil utilisateur](screenshots/profile.png)
+
+---
+
+### Emplacement des captures
+Les captures d’écran sont stockées dans le dossier `screenshots` du projet. Vous pouvez les consulter directement depuis ce dossier pour voir plus de détails.
+
+
+---
+
+### Ajouter vos propres captures
+Si vous souhaitez reproduire ou ajouter d’autres captures :
+1. Lancez le serveur avec `php artisan serve`.
+2. Naviguez sur les pages de l’application.
+3. Utilisez un outil de capture d’écran pour enregistrer les vues souhaitées.
+4. Placez les images dans le dossier `screenshots` et mettez à jour le README.
+
+---
+
+### Mise à jour continue
+Cette section sera enrichie au fur et à mesure que des fonctionnalités ou des correctifs seront ajoutés au projet. Vous pouvez suivre ces mises à jour sur le dépôt GitHub.
+
 
 ---
 
